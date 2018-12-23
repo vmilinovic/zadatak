@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadatak</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/app.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/loginMod.js"></script>
+    <script src="js/dashboardMod.js"></script>
+    <script src="js/addMod.js"></script>
+    <script src="js/customerMod.js"></script>
+    <script src="js/illnessMod.js"></script>
+
+
+</head>
+<body ng-app="myApp">
+    <div ng-controller="appCtrl">
+
+        <div class="row navDiv">
+            <button class="btn navBtn" ng-if="isLogin" ng-click="goHome()">HOME</button>
+            <button class="btn navBtn" ng-if="isLogin" ng-click="createUser()">CREATE USER</button>
+            <button class="btn navBtn" ng-if="isLogin" ng-click="createCustomer()">CREATE PATIENT</button>
+            <button class="btn navBtn" ng-if="isLogin" ng-click="createIllness()">CREATE ILLNESS</button>
+            <!--<button ng-click="changeMyData()">CHANGE MY DATA</button>-->
+            <button class="btn navBtn" ng-if="isLogin" ng-click="logout()">LOGOUT</button>
+        </div>
+
+        <br><br>
+
+        <ng-view></ng-view>
+
+    </div>
+</body>
+</html>

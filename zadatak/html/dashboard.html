@@ -1,0 +1,46 @@
+<div ng-controller="dashboardCtrl">
+    <div class="row" style="display:flex; margin:0; padding-bottom:10px">
+        <div class="searchDiv" >
+            <label class="label label-default" for="firstname">First Name:</label>
+            <input class="form-control" type="text" name="firstname" id="firstname"
+                   ng-model="firstname">
+        </div>
+        <div class="searchDiv" >
+        <label class="label label-default" for="lastname">Last Name:</label>
+            <input class="form-control" type="text" name="lastname" id="lastname"
+                   ng-model="lastname">
+        </div>
+        <div class="searchDiv" >
+        <label class="label label-default" for="limit">Limit:</label>
+            <select class="form-control" id="limit" ng-options="limit for limit in limits" ng-model="limit"></select>
+        </div>
+        <div class="searchDiv" style="float: right">
+            <button class="btn searchBtn" ng-click="search()"> SEARCH</button>
+        </div>
+    </div>
+    <div class="row" style="margin: 0">
+        <table class="table table-hover table-condensed table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Birth Date</th>
+                    <th>Change Data</th>
+                    <th>Change Illness</th>
+                    <th>Image</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="customer in customers">
+                    <td>{{customer.id}}</td>
+                    <td>{{customer.firstname+" "+customer.lastname}}</td>
+                    <td>{{customer.birthDate | date :  "dd.MM.yyyy"}}</td>
+                    <td><button class="btn" ng-click="manageCustomer(customer)">Patient Personal Data</button></td>
+                    <td><button class="btn" ng-click="manageIll(customer.id)">Patient Illness Data</button></td>
+                    <td><img ng-src="{{customer.img}}" alt="" width="100px"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

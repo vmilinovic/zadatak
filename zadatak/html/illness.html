@@ -1,0 +1,76 @@
+<div ng-controler="illnessCtrl">
+    <div  style="width: 100%; display: flex; margin-bottom: 10px">
+        <div ng-if="status=='edit'" class="container" >
+            <p>Add Illness To Patient</p>
+            <label class="label label-default" for="id">Illness ID:</label>
+            <input class="form-control" type="text" name="name" id="id"
+                   ng-model="currtentIllness.id">
+            <br><br>
+            <label class="label label-default" for="lastname">Comment:</label>
+            <input class="form-control" type="text" name="lastname" id="lastname"
+                   ng-model="currtentIllness.comment">
+            <br><br>
+            <button class="btn" ng-click="addIllnessToCustomer(currtentIllness.id,customerId,currtentIllness.comment)">ADD</button>
+        </div>
+        <div class="container" >
+            <p>Create New Illness</p>
+            <label class="label label-default" for="illnessName">Name:</label>
+            <input class="form-control" type="text" name="name" id="illnessName"
+                   ng-model="illness.name">
+            <br><br>
+            <label class="label label-default" for="illnessDescription">Description:</label>
+            <input class="form-control" type="text" name="lastname" id="illnessDescription"
+                   ng-model="illness.description">
+            <br><br>
+            <button class="btn longBtn" ng-click="addIllnessToIllnesses(illness.name,illness.description)">CREATE</button>
+        </div>
+    </div>
+    <div  style="width: 100%; display: flex">
+        <div ng-if="status=='edit'" class="container">
+            <div style="width: 100%;">
+                <p>Customer with ID {{customerId}}, illness list: </p>
+                <table class="table table-hover table-condensed table-striped">
+                    <thead>
+                    <tr>
+                        <th>Illness</th>
+                        <th>Arrival Date</th>
+                        <th>Comment</th>
+                        <th>DELETE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="illness in customerIllnesses">
+                        <td>{{illness.name}}</td>
+                        <td>{{illness.arrivalDate}}</td>
+                        <td><button class="btn" ng-click="showData(illness.comment)">SHOW</button></td>
+                        <td><button class="btn" ng-click="deleteIllnesFromCustomer(illness.ind)">X</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="container">
+            <div style="width: 100%;">
+                <p>List of all illness</p>
+                <table class="table table-hover table-condensed table-striped">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>DELETE</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="illness in allIllnesses">
+                        <td>{{illness.id}}</td>
+                        <td>{{illness.name}}</td>
+                        <td><button class="btn" ng-click="showData(illness.description)">SHOW</button></td>
+                        <td><button class="btn" ng-click="deleteIllnesFromIllnesses(illness.id)">X</button></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

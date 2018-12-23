@@ -1,0 +1,26 @@
+<div ng-controler="customerCtrl">
+    <div class="container">
+
+        <label class="label label-default" for="username">Username:</label>
+        <input class="form-control" type="text" name="firstname" id="username"
+               ng-model="username">
+        <br><br>
+        <label class="label label-default" for="password">Password:</label>
+        <input class="form-control" type="text" name="password" id="password"
+               ng-model="password">
+        <br><br>
+        <label class="label label-default" for="firstname">First Name:</label>
+        <input class="form-control" type="text" name="firstname" id="firstname"
+               ng-model="firstname">
+        <br><br>
+        <label class="label label-default" for="lastname">Last Name:</label>
+        <input class="form-control" type="text" name="lastname" id="lastname"
+               ng-model="lastname">
+        <br><br>
+        <label class="label label-default" for="role">Role:</label>
+        <select class="form-control" id="role" ng-options="role as role.name for role in roles track by role.id" ng-model="selectedRole"></select>
+        <br><br>
+        <button class="btn longBtn  " ng-click="createUser(username,password,firstname,lastname,selectedRole.id)">CREATE</button>
+
+    </div>
+</div>

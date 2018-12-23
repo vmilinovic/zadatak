@@ -1,0 +1,65 @@
+<div ng-controler="customerCtrl">
+    <div class="container">
+        <button class="btn longBtn" ng-if="status == 'edit'" class="btn" ng-click="manageIllness();">Patient Illness Data</button>
+        <br ng-if="status == 'edit'" ><br ng-if="status == 'edit'" >
+        <label class="label label-default" for="firstname">First Name:</label>
+        <input class="form-control" type="text" name="firstname" id="firstname"
+               ng-model="customer.firstname"  >
+        <br><br>
+        <label class="label label-default" for="lastname">Last Name:</label>
+        <input class="form-control" type="text" name="lastname" id="lastname"
+               ng-model="customer.lastname"  >
+        <br><br>
+        <label class="label label-default" for="street">Street:</label>
+        <input class="form-control" type="text" name="street" id="street"
+               ng-model="customer.street">
+        <br><br>
+        <label class="label label-default" for="streetNumber">Street Number:</label>
+        <input class="form-control" type="text" name="streetNumber" id="streetNumber"
+               ng-model="customer.streetNumber">
+        <br><br>
+        <label class="label label-default" for="zipCode">ZipCode:</label>
+        <input class="form-control" type="text" name="zipCode" id="zipCode"
+               ng-model="customer.zipCode">
+        <br><br>
+        <label class="label label-default" for="phone">Phone:</label>
+        <input class="form-control" type="text" name="phone" id="phone"
+               ng-model="customer.phone">
+        <br><br>
+        <label class="label label-default" for="birthDate">Birth Date:</label>
+        <input class="form-control" type="date" name="birthDate" id="birthDate"
+               ng-model="customer.birthDate">
+        <br><br>
+        <label class="label label-default" for="userId">Doctor ID:</label>
+        <input class="form-control" type="text" name="userId" id="userId"
+               ng-model="customer.userId">
+        <br><br>
+        <div class="row" style="margin: 0">
+            <label class="label label-default" for="img">Image:</label>
+            <div id="img">
+                <button class="btn customerBtn" ng-click="addFile('img')">ADD IMAGE FILE</button>
+                <img ng-src="{{customer.img}}" alt="" width="100px">
+            </div>
+        </div>
+
+        <div class="row" style="margin: 0">
+            <label class="label label-default" for="pdf">Pdf:</label>
+            <div id="pdf">
+                <button class="btn customerBtn" ng-if="customer.pdf.length>0" ng-click="openFile('pdf')">OPEN PDF FILE</button>
+                <button class="btn customerBtn" ng-click="addFile('pdf')">ADD PDF FILE</button>
+            </div>
+        </div>
+
+        <div class="row" style="margin: 0">
+            <label class="label label-default" for="word">Word:</label>
+            <div id="word">
+                <button class="btn customerBtn" ng-if="customer.word.length>0" ng-click="openFile('word')">OPEN WORD FILE</button>
+                <button class="btn customerBtn" ng-click="addFile('word')">ADD WORD FILE</button>
+            </div>
+        </div>
+        <hr>
+        <button class="btn longBtn" ng-if="status=='create'" ng-click="createCustomer()">CREATE</button>
+        <button class="btn customerBtn" ng-if="status=='edit'" ng-click="updateCustomer()">SAVE</button>
+        <button class="btn customerBtn" ng-if="status=='edit'" ng-click="deleteCustomer()">DELETE</button>
+    </div>
+</div>

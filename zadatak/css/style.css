@@ -1,0 +1,38 @@
+.navDiv {
+    background-color: darkgrey;
+}
+.navBtn {
+    background-color: darkgrey;
+    width: 20%;
+    height: 55px;
+    float: left;
+}
+.navBtn:hover {
+    background-color: grey;
+}
+.searchDiv {
+    width: 25%;
+    padding: 5px;
+}
+.searchBtn{
+    margin-top: 20px;
+    float: right;
+    margin-right: 20px;
+}
+.table,  .table > thead:first-child > tr:first-child > th {
+    text-align: center;
+}
+.customerBtn {
+    width: calc(50% - 5px);
+}
+.longBtn {
+    width: 100%;
+}
+.container {
+    margin-left:5px;
+    padding: 10px;
+    border: 1px solid black;
+    width: 45%;
+    float: left;
+    border-radius: 5px;
+}
